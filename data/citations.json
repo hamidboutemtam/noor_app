@@ -1,207 +1,445 @@
 {
   "version": "1.0.0",
-  "last_updated": "2025-12-26T20:30:00Z",
-  "total_count": 20,
+  "last_updated": "2025-12-26T19:52:01.528Z",
+  "total_count": 30,
   "citations": [
     {
-      "id": "C001",
-      "text_fr": "Allah ne change pas l'état d'un peuple tant qu'ils ne changent pas ce qui est en eux-mêmes.",
-      "text_ar": "إِنَّ اللَّهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتَّىٰ يُغَيِّرُوا مَا بِأَنفُسِهِمْ",
-      "source_type": "coran",
-      "source_ref": "Sourate Ar-Ra'd, 13:11",
-      "moods": ["motivation", "procrastination"],
-      "target": ["particulier", "entrepreneur"],
+      "id": "C021",
+      "text_fr": "Commence ta journée par une action, même petite. L'élan que tu crées maintenant portera tout le reste de tes heures.",
+      "text_ar": null,
+      "source_type": "action",
+      "source_ref": null,
+      "moods": [
+        "procrastination",
+        "motivation"
+      ],
+      "target": [
+        "particulier"
+      ],
       "epreuve": false
     },
     {
-      "id": "C002",
-      "text_fr": "À côté de la difficulté est certes une facilité.",
-      "text_ar": "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا",
-      "source_type": "coran",
-      "source_ref": "Sourate Ash-Sharh, 94:5-6",
-      "moods": ["stress", "déprime", "fatigue"],
-      "target": ["particulier", "entrepreneur"],
+      "id": "C022",
+      "text_fr": "Ton stress diminue quand tes priorités sont claires. Écris tes trois tâches essentielles et ignore le reste.",
+      "text_ar": null,
+      "source_type": "action",
+      "source_ref": null,
+      "moods": [
+        "stress"
+      ],
+      "target": [
+        "particulier"
+      ],
+      "epreuve": false
+    },
+    {
+      "id": "C023",
+      "text_fr": "Cette épreuve que tu traverses forge ta force intérieure. Chaque difficulté surmontée élargit ta capacité à affronter l'avenir.",
+      "text_ar": null,
+      "source_type": "action",
+      "source_ref": null,
+      "moods": [
+        "déprime"
+      ],
+      "target": [
+        "particulier"
+      ],
       "epreuve": true
     },
     {
-      "id": "C003",
-      "text_fr": "Ton Seigneur ne t'a ni abandonné, ni détesté.",
-      "text_ar": "مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ",
-      "source_type": "coran",
-      "source_ref": "Sourate Ad-Duha, 93:3",
-      "moods": ["déprime", "fatigue"],
-      "target": ["particulier"],
+      "id": "C024",
+      "text_fr": "Ta fatigue n'est pas un échec, c'est un signal. Respecte tes limites aujourd'hui pour être plus fort demain.",
+      "text_ar": null,
+      "source_type": "action",
+      "source_ref": null,
+      "moods": [
+        "fatigue"
+      ],
+      "target": [
+        "particulier"
+      ],
+      "epreuve": false
+    },
+    {
+      "id": "C025",
+      "text_fr": "Arrête de chercher le moment parfait. L'action imparfaite maintenant vaut mieux que l'intention parfaite jamais réalisée.",
+      "text_ar": null,
+      "source_type": "action",
+      "source_ref": null,
+      "moods": [
+        "procrastination"
+      ],
+      "target": [
+        "particulier"
+      ],
+      "epreuve": false
+    },
+    {
+      "id": "C026",
+      "text_fr": "Tu as déjà surmonté 100% de tes mauvaises journées. Cette capacité de résilience est ta preuve que tu peux continuer.",
+      "text_ar": null,
+      "source_type": "action",
+      "source_ref": null,
+      "moods": [
+        "déprime",
+        "motivation"
+      ],
+      "target": [
+        "particulier"
+      ],
       "epreuve": true
     },
     {
-      "id": "C004",
-      "text_fr": "Sois patient, car la promesse d'Allah est vérité.",
-      "text_ar": "فَاصْبِرْ إِنَّ وَعْدَ اللَّهِ حَقٌّ",
-      "source_type": "coran",
-      "source_ref": "Sourate Ar-Rûm, 30:60",
-      "moods": ["stress", "fatigue"],
-      "target": ["particulier", "entrepreneur"],
+      "id": "C027",
+      "text_fr": "Divise cette tâche qui t'écrase en étapes de 15 minutes. Ta montagne devient une série de petites collines franchissables.",
+      "text_ar": null,
+      "source_type": "action",
+      "source_ref": null,
+      "moods": [
+        "stress",
+        "procrastination"
+      ],
+      "target": [
+        "particulier"
+      ],
+      "epreuve": false
+    },
+    {
+      "id": "C028",
+      "text_fr": "La constance bat le talent quand le talent n'est pas constant. Fais ton minimum quotidien, même quand l'envie n'y est pas.",
+      "text_ar": null,
+      "source_type": "action",
+      "source_ref": null,
+      "moods": [
+        "motivation",
+        "fatigue"
+      ],
+      "target": [
+        "particulier"
+      ],
+      "epreuve": false
+    },
+    {
+      "id": "C029",
+      "text_fr": "Cette période sombre n'est pas ta destination finale. Continue d'avancer, même à petits pas, la lumière se rapproche.",
+      "text_ar": null,
+      "source_type": "action",
+      "source_ref": null,
+      "moods": [
+        "déprime"
+      ],
+      "target": [
+        "particulier"
+      ],
       "epreuve": true
     },
     {
-      "id": "C005",
-      "text_fr": "Dis : Œuvrez, Allah verra vos œuvres.",
-      "text_ar": "وَقُلِ اعْمَلُوا فَسَيَرَى اللَّهُ عَمَلَكُمْ",
-      "source_type": "coran",
-      "source_ref": "Sourate At-Tawbah, 9:105",
-      "moods": ["motivation", "procrastination"],
-      "target": ["entrepreneur"],
+      "id": "C030",
+      "text_fr": "Ton niveau de confiance augmente avec tes actions accomplies. Crée ta confiance en tenant tes engagements envers toi-même.",
+      "text_ar": null,
+      "source_type": "action",
+      "source_ref": null,
+      "moods": [
+        "motivation"
+      ],
+      "target": [
+        "particulier"
+      ],
       "epreuve": false
     },
     {
-      "id": "C006",
-      "text_fr": "Allah n'impose à aucune âme une charge supérieure à sa capacité.",
-      "text_ar": "لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا",
-      "source_type": "coran",
-      "source_ref": "Sourate Al-Baqarah, 2:286",
-      "moods": ["stress", "fatigue"],
-      "target": ["particulier"],
+      "id": "C031",
+      "text_fr": "Respire profondément et rappelle-toi : tu gères cette situation, elle ne te gère pas. Tu as plus de contrôle que tu ne le penses.",
+      "text_ar": null,
+      "source_type": "action",
+      "source_ref": null,
+      "moods": [
+        "stress"
+      ],
+      "target": [
+        "particulier"
+      ],
+      "epreuve": false
+    },
+    {
+      "id": "C032",
+      "text_fr": "Tes erreurs d'aujourd'hui sont les leçons qui t'éviteront les échecs de demain. Apprends et avance sans t'attarder.",
+      "text_ar": null,
+      "source_type": "action",
+      "source_ref": null,
+      "moods": [
+        "déprime",
+        "motivation"
+      ],
+      "target": [
+        "particulier"
+      ],
+      "epreuve": false
+    },
+    {
+      "id": "C033",
+      "text_fr": "Change d'environnement pour changer d'énergie. Parfois, un simple changement de lieu relance ta motivation.",
+      "text_ar": null,
+      "source_type": "action",
+      "source_ref": null,
+      "moods": [
+        "fatigue",
+        "procrastination"
+      ],
+      "target": [
+        "particulier"
+      ],
+      "epreuve": false
+    },
+    {
+      "id": "C034",
+      "text_fr": "Les tempêtes les plus violentes précèdent souvent les plus beaux calmes. Ta persévérance aujourd'hui prépare ta sérénité de demain.",
+      "text_ar": null,
+      "source_type": "action",
+      "source_ref": null,
+      "moods": [
+        "déprime",
+        "stress"
+      ],
+      "target": [
+        "particulier"
+      ],
       "epreuve": true
     },
     {
-      "id": "C007",
-      "text_fr": "La patience est la clé du soulagement.",
-      "text_ar": "الصبر مفتاح الفرج",
-      "source_type": "rappel",
-      "source_ref": "Sagesse islamique",
-      "moods": ["stress", "fatigue"],
-      "target": ["particulier", "entrepreneur"],
+      "id": "C035",
+      "text_fr": "Célèbre chaque victoire, même minime. Ton cerveau a besoin de reconnaître tes progrès pour maintenir ton élan.",
+      "text_ar": null,
+      "source_type": "action",
+      "source_ref": null,
+      "moods": [
+        "motivation",
+        "fatigue"
+      ],
+      "target": [
+        "particulier"
+      ],
+      "epreuve": false
+    },
+    {
+      "id": "C036",
+      "text_fr": "Arrête de chercher des excuses dans le marché, la concurrence ou les circonstances. Si ton produit ne se vend pas, c'est que tu n'apportes pas assez de valeur.",
+      "text_ar": null,
+      "source_type": "action",
+      "source_ref": null,
+      "moods": [
+        "stress",
+        "déprime"
+      ],
+      "target": [
+        "entrepreneur"
+      ],
       "epreuve": true
     },
     {
-      "id": "C008",
-      "text_fr": "Le croyant fort est meilleur et plus aimé d'Allah que le croyant faible.",
-      "text_ar": "المؤمن القوي خير وأحب إلى الله من المؤمن الضعيف",
-      "source_type": "rappel",
-      "source_ref": "Sahih Muslim, 2664",
-      "moods": ["motivation", "fatigue"],
-      "target": ["particulier", "entrepreneur"],
-      "epreuve": false
-    },
-    {
-      "id": "C009",
-      "text_fr": "Tu n'as pas besoin d'aller bien pour avancer. Tu as juste besoin d'avancer.",
+      "id": "C037",
+      "text_fr": "La licéité de tes revenus vaut mieux que leur montant. Un dirham halal nourrit mieux qu'un million suspect.",
       "text_ar": null,
       "source_type": "action",
       "source_ref": null,
-      "moods": ["déprime", "procrastination"],
-      "target": ["particulier", "entrepreneur"],
+      "moods": [
+        "motivation"
+      ],
+      "target": [
+        "entrepreneur"
+      ],
       "epreuve": false
     },
     {
-      "id": "C010",
-      "text_fr": "La discipline aujourd'hui t'évitera le regret demain.",
+      "id": "C038",
+      "text_fr": "Tes intentions ne payent pas tes factures. Transforme tes bonnes idées en actions concrètes aujourd'hui même.",
       "text_ar": null,
       "source_type": "action",
       "source_ref": null,
-      "moods": ["procrastination", "motivation"],
-      "target": ["particulier", "entrepreneur"],
+      "moods": [
+        "procrastination"
+      ],
+      "target": [
+        "entrepreneur"
+      ],
       "epreuve": false
     },
     {
-      "id": "C011",
-      "text_fr": "Ce n'est pas ta situation qui te définit, mais ta réaction.",
+      "id": "C039",
+      "text_fr": "L'échec n'est pas un verdict, c'est un retour client gratuit. Analyse, corrige et relance plutôt que de pleurer sur ton sort.",
       "text_ar": null,
       "source_type": "action",
       "source_ref": null,
-      "moods": ["déprime", "stress"],
-      "target": ["particulier", "entrepreneur"],
-      "epreuve": false
-    },
-    {
-      "id": "C012",
-      "text_fr": "La constance est plus puissante que la motivation.",
-      "text_ar": null,
-      "source_type": "action",
-      "source_ref": null,
-      "moods": ["motivation", "fatigue"],
-      "target": ["particulier", "entrepreneur"],
-      "epreuve": false
-    },
-    {
-      "id": "C013",
-      "text_fr": "Tu n'es pas faible parce que tu luttes. Tu es humain.",
-      "text_ar": null,
-      "source_type": "action",
-      "source_ref": null,
-      "moods": ["fatigue", "déprime"],
-      "target": ["particulier"],
+      "moods": [
+        "déprime",
+        "stress"
+      ],
+      "target": [
+        "entrepreneur"
+      ],
       "epreuve": true
     },
     {
-      "id": "C014",
-      "text_fr": "L'épreuve n'est pas une punition. C'est souvent une élévation déguisée.",
+      "id": "C040",
+      "text_fr": "Si tu n'arrives pas à vendre ton service, pose-toi la vraie question : est-ce que tu résous vraiment un problème ou tu cherches juste à gagner de l'argent ?",
       "text_ar": null,
       "source_type": "action",
       "source_ref": null,
-      "moods": ["déprime"],
-      "target": ["particulier"],
+      "moods": [
+        "stress",
+        "motivation"
+      ],
+      "target": [
+        "entrepreneur"
+      ],
       "epreuve": true
     },
     {
-      "id": "C015",
-      "text_fr": "Personne ne te doit ta réussite.",
+      "id": "C041",
+      "text_fr": "La constance bat le talent tous les jours. Fais le travail même quand tu n'en as pas envie, surtout quand tu n'en as pas envie.",
       "text_ar": null,
       "source_type": "action",
       "source_ref": null,
-      "moods": ["motivation", "procrastination"],
-      "target": ["entrepreneur"],
+      "moods": [
+        "fatigue",
+        "procrastination"
+      ],
+      "target": [
+        "entrepreneur"
+      ],
       "epreuve": false
     },
     {
-      "id": "C016",
-      "text_fr": "Si ton business stagne, regarde tes actions, pas ton intention.",
+      "id": "C042",
+      "text_fr": "Tu doutes de ton projet ? Bien. Le doute t'évite l'arrogance et t'oblige à vérifier tes hypothèses sur le terrain.",
       "text_ar": null,
       "source_type": "action",
       "source_ref": null,
-      "moods": ["stress", "procrastination"],
-      "target": ["entrepreneur"],
+      "moods": [
+        "stress",
+        "motivation"
+      ],
+      "target": [
+        "entrepreneur"
+      ],
       "epreuve": false
     },
     {
-      "id": "C017",
-      "text_fr": "L'éthique n'est pas un frein. C'est une fondation.",
+      "id": "C043",
+      "text_fr": "Arrête de copier les stratégies des autres. Construis ton business sur tes principes, pas sur les tendances du moment.",
       "text_ar": null,
       "source_type": "action",
       "source_ref": null,
-      "moods": ["motivation"],
-      "target": ["entrepreneur"],
+      "moods": [
+        "motivation"
+      ],
+      "target": [
+        "entrepreneur"
+      ],
       "epreuve": false
     },
     {
-      "id": "C018",
-      "text_fr": "Tu sais déjà ce que tu dois améliorer. Fais-le.",
+      "id": "C044",
+      "text_fr": "Tes clients te font confiance pour résoudre leurs problèmes, pas pour leur mentir avec du marketing manipulateur. Respecte cette responsabilité.",
       "text_ar": null,
       "source_type": "action",
       "source_ref": null,
-      "moods": ["procrastination"],
-      "target": ["entrepreneur"],
+      "moods": [
+        "motivation"
+      ],
+      "target": [
+        "entrepreneur"
+      ],
       "epreuve": false
     },
     {
-      "id": "C019",
-      "text_fr": "L'échec n'est pas un verdict, c'est une information.",
+      "id": "C045",
+      "text_fr": "La fatigue est normale, l'abandon est un choix. Prends du repos mais ne confonds pas pause et démission.",
       "text_ar": null,
       "source_type": "action",
       "source_ref": null,
-      "moods": ["déprime", "stress"],
-      "target": ["entrepreneur"],
+      "moods": [
+        "fatigue",
+        "déprime"
+      ],
+      "target": [
+        "entrepreneur"
+      ],
       "epreuve": true
     },
     {
-      "id": "C020",
-      "text_fr": "Tu n'es pas en retard, tu es en construction.",
+      "id": "C046",
+      "text_fr": "Si tu procrastines, c'est que tu as peur de l'échec ou du succès. Identifie cette peur et agis malgré elle.",
       "text_ar": null,
       "source_type": "action",
       "source_ref": null,
-      "moods": ["stress", "déprime"],
-      "target": ["entrepreneur"],
-      "epreuve": true
+      "moods": [
+        "procrastination",
+        "stress"
+      ],
+      "target": [
+        "entrepreneur"
+      ],
+      "epreuve": false
+    },
+    {
+      "id": "C047",
+      "text_fr": "Ton business doit servir les gens avant de te servir. Inverse cette priorité et tu couleras, même avec le meilleur produit du monde.",
+      "text_ar": null,
+      "source_type": "action",
+      "source_ref": null,
+      "moods": [
+        "motivation"
+      ],
+      "target": [
+        "entrepreneur"
+      ],
+      "epreuve": false
+    },
+    {
+      "id": "C048",
+      "text_fr": "Stop aux objectifs flous. 'Réussir' n'est pas un plan d'action. Définis des métriques précises et mesure tes progrès chaque semaine.",
+      "text_ar": null,
+      "source_type": "action",
+      "source_ref": null,
+      "moods": [
+        "procrastination",
+        "motivation"
+      ],
+      "target": [
+        "entrepreneur"
+      ],
+      "epreuve": false
+    },
+    {
+      "id": "C049",
+      "text_fr": "La transparence n'est pas une option, c'est ton devoir. Cache tes défauts à tes clients et tu détruis ta réputation pour toujours.",
+      "text_ar": null,
+      "source_type": "action",
+      "source_ref": null,
+      "moods": [
+        "stress",
+        "motivation"
+      ],
+      "target": [
+        "entrepreneur"
+      ],
+      "epreuve": false
+    },
+    {
+      "id": "C050",
+      "text_fr": "Tu veux des résultats extraordinaires ? Fais le travail ordinaire de façon extraordinairement constante.",
+      "text_ar": null,
+      "source_type": "action",
+      "source_ref": null,
+      "moods": [
+        "fatigue",
+        "motivation"
+      ],
+      "target": [
+        "entrepreneur"
+      ],
+      "epreuve": false
     }
   ]
 }
