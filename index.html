@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>NOOR - Motivation & Encouragement</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- React -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+  
+  <style>
+    :root {
+      --bg: #FAFAF8;
+      --card: #FFFFFF;
+      --primary: #1B5E4A;
+      --primary-soft: rgba(27, 94, 74, 0.08);
+      --gold: #C9A227;
+      --text: #1A1A1A;
+      --text-soft: #6B6B6B;
+      --text-muted: #A0A0A0;
+      --border: #F0EDE8;
+      
+      --type-coran: #1B5E4A;
+      --type-rappel: #8B6914;
+      --type-action: #3D5A80;
+      
+      --radius: 16px;
+      --radius-full: 100px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      font-family: 'Outfit', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    #root {
+      height: 100%;
+    }
+
+    .app {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      max-width: 480px;
+      margin: 0 auto;
+      background: var(--bg);
+    }
+
+    .screen {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* ======================= */
+    /* ONBOARDING */
+    /* ======================= */
+    
+    .onboarding {
+      justify-content: center;
+      align-items: center;
+      padding: 40px 32px;
+      text-align: center;
+    }
+
+    .onboarding-logo {
+      width: 64px;
+      height: 64px;
+      background: var(--primary);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .onboarding-logo svg {
+      width: 32px;
+      height: 32px;
+      color: white;
+    }
+
+    .onboarding h1 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    .onboarding p {
+      font-size: 15px;
+      color: var(--text-soft);
+      margin-bottom: 48px;
+    }
+
+    .profile-choices {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      margin-bottom: 32px;
+    }
+
+    .profile-choice {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px;
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: left;
+    }
+
+    .profile-choice:hover {
+      border-color: var(--text-muted);
+    }
+
+    .profile-choice.selected {
+      border-color: var(--primary);
+      background: var(--primary-soft);
+    }
+
+    .profile-choice-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--bg);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .profile-choice.selected .profile-choice-icon {
+      background: var(--primary);
+      color: white;
+    }
+
+    .profile-choice-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .profile-choice-text h3 {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .profile-choice-text span {
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .btn-primary {
+      width: 100%;
+      padding: 18px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: var(--radius-full);
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary:disabled {
+      background: var(--text-muted);
+      cursor: not-allowed;
+    }
+
+    .btn-primary:not(:disabled):hover {
+      opacity: 0.9;
+    }
+
+    /* ======================= */
+    /* HOME - Ã‰PURÃ‰ */
+    /* ======================= */
+
+    .home {
+      padding: 24px;
+      padding-bottom: 100px;
+    }
+
+    .home-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 48px;
+    }
+
+    .home-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-soft);
+    }
+
+    .home-profile {
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .home-profile svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .home-question {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .home-question h1 {
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 4px;
+    }
+
+    .home-question p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* Mood Selection - Simple Pills */
+    .mood-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .mood-pill {
+      padding: 12px 20px;
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-full);
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 450;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mood-pill:hover {
+      border-color: var(--text-muted);
+    }
+
+    .mood-pill.selected {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+    }
+
+    .mood-pill .emoji {
+      font-size: 16px;
+    }
+
+    /* Mode Ã‰preuve - Discret */
+    .epreuve-option {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px;
+      margin-bottom: 32px;
+      cursor: pointer;
+    }
+
+    .epreuve-option span {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .epreuve-option.active span {
+      color: var(--type-rappel);
+    }
+
+    .checkbox {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--border);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .checkbox.checked {
+      background: var(--type-rappel);
+      border-color: var(--type-rappel);
+    }
+
+    .checkbox svg {
+      width: 12px;
+      height: 12px;
+      color: white;
+      opacity: 0;
+    }
+
+    .checkbox.checked svg {
+      opacity: 1;
+    }
+
+    /* CTA */
+    .home-cta {
+      padding: 18px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: var(--radius-full);
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      width: 100%;
+      transition: all 0.2s ease;
+    }
+
+    .home-cta:disabled {
+      background: var(--border);
+      color: var(--text-muted);
+      cursor: not-allowed;
+    }
+
+    .home-cta:not(:disabled):hover {
+      opacity: 0.9;
+    }
+
+    /* ======================= */
+    /* CITATION */
+    /* ======================= */
+
+    .citation-screen {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 24px;
+      min-height: 100%;
+    }
+
+    .citation-card {
+      background: var(--card);
+      border-radius: 24px;
+      padding: 32px 24px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      animation: scaleIn 0.4s ease;
+    }
+
+    .citation-type {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 24px;
+    }
+
+    .citation-type.coran {
+      background: rgba(27, 94, 74, 0.1);
+      color: var(--type-coran);
+    }
+
+    .citation-type.rappel {
+      background: rgba(139, 105, 20, 0.1);
+      color: var(--type-rappel);
+    }
+
+    .citation-type.action {
+      background: rgba(61, 90, 128, 0.1);
+      color: var(--type-action);
+    }
+
+    .citation-ar {
+      font-family: 'Amiri', serif;
+      font-size: 24px;
+      line-height: 1.8;
+      text-align: center;
+      direction: rtl;
+      color: var(--text);
+      margin-bottom: 20px;
+      padding: 20px;
+      background: var(--bg);
+      border-radius: var(--radius);
+    }
+
+    .citation-fr {
+      font-size: 19px;
+      line-height: 1.7;
+      text-align: center;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+
+    .citation-source {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-soft);
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .citation-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .action-btn {
+      width: 52px;
+      height: 52px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      background: var(--bg);
+      color: var(--text-soft);
+    }
+
+    .action-btn svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .action-btn:hover {
+      background: var(--border);
+    }
+
+    .action-btn.favorite.active {
+      background: var(--gold);
+      color: white;
+    }
+
+    .action-btn.refresh {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Bouton "Je l'ai fait" */
+    .done-btn {
+      width: 100%;
+      padding: 16px;
+      margin-top: 20px;
+      background: transparent;
+      border: 2px solid var(--gold);
+      border-radius: var(--radius-full);
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--gold);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .done-btn:hover {
+      background: var(--gold);
+      color: white;
+    }
+
+    .done-btn.completed {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+    }
+
+    .done-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .back-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 32px;
+      font-size: 14px;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 12px;
+    }
+
+    .back-link:hover {
+      color: var(--text-soft);
+    }
+
+    .back-link svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ======================= */
+    /* FAVORIS */
+    /* ======================= */
+
+    .favorites {
+      padding: 24px;
+      padding-bottom: 100px;
+    }
+
+    .favorites h1 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .favorites-count {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    .favorites-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .favorite-item {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 20px;
+      position: relative;
+    }
+
+    .favorite-type {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+
+    .favorite-type.coran { color: var(--type-coran); }
+    .favorite-type.rappel { color: var(--type-rappel); }
+    .favorite-type.action { color: var(--type-action); }
+
+    .favorite-text {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text);
+      margin-bottom: 12px;
+      padding-right: 32px;
+    }
+
+    .favorite-source {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .favorite-remove {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 28px;
+      height: 28px;
+      background: var(--bg);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+    }
+
+    .favorite-remove:hover {
+      background: #FFE5E5;
+      color: #E53935;
+    }
+
+    .favorite-remove svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 60px 24px;
+    }
+
+    .empty-state-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--border);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      color: var(--text-muted);
+    }
+
+    .empty-state-icon svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .empty-state h3 {
+      font-size: 17px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .empty-state p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* ======================= */
+    /* PARAMÃˆTRES */
+    /* ======================= */
+
+    .settings {
+      padding: 24px;
+      padding-bottom: 100px;
+    }
+
+    .settings h1 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 32px;
+    }
+
+    .settings-group {
+      margin-bottom: 24px;
+    }
+
+    .settings-group-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      padding-left: 4px;
+    }
+
+    .settings-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px;
+      background: var(--card);
+      border-radius: var(--radius);
+      margin-bottom: 8px;
+    }
+
+    .settings-item-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .settings-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--bg);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-soft);
+    }
+
+    .settings-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .settings-label {
+      font-size: 15px;
+      font-weight: 450;
+    }
+
+    .settings-value {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .toggle {
+      width: 48px;
+      height: 28px;
+      background: var(--border);
+      border-radius: 14px;
+      padding: 2px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .toggle.on {
+      background: var(--primary);
+    }
+
+    .toggle-knob {
+      width: 24px;
+      height: 24px;
+      background: white;
+      border-radius: 50%;
+      transition: transform 0.2s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .toggle.on .toggle-knob {
+      transform: translateX(20px);
+    }
+
+    /* ======================= */
+    /* NAVIGATION */
+    /* ======================= */
+
+    .nav {
+      display: flex;
+      background: var(--card);
+      padding: 12px 24px 28px;
+      border-top: 1px solid var(--border);
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .nav-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-item.active {
+      color: var(--primary);
+    }
+
+    .nav-item svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--text);
+      color: white;
+      padding: 14px 24px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 450;
+      opacity: 0;
+      transition: all 0.3s ease;
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @supports (padding-bottom: env(safe-area-inset-bottom)) {
+      .nav {
+        padding-bottom: calc(16px + env(safe-area-inset-bottom));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useCallback } = React;
+
+    // ============================================
+    // NOOR V2 - Version Ã©purÃ©e
+    // ============================================
+
+    // Base de donnÃ©es
+    const citationsDB = [
+      // CORAN
+      {
+        id: '1',
+        text_fr: "Allah ne change pas l'Ã©tat d'un peuple tant qu'ils ne changent pas ce qui est en eux-mÃªmes.",
+        text_ar: "Ø¥ÙÙ†ÙŽÙ‘ Ø§Ù„Ù„ÙŽÙ‘Ù‡ÙŽ Ù„ÙŽØ§ ÙŠÙØºÙŽÙŠÙÙ‘Ø±Ù Ù…ÙŽØ§ Ø¨ÙÙ‚ÙŽÙˆÙ’Ù…Ù Ø­ÙŽØªÙŽÙ‘Ù‰Ù° ÙŠÙØºÙŽÙŠÙÙ‘Ø±ÙÙˆØ§ Ù…ÙŽØ§ Ø¨ÙØ£ÙŽÙ†ÙÙØ³ÙÙ‡ÙÙ…Ù’",
+        source_type: "coran",
+        source_ref: "Sourate Ar-Ra'd",
+        moods: ["motivation", "procrastination"],
+        target: ["particulier", "entrepreneur"],
+        epreuve: false
+      },
+      {
+        id: '2',
+        text_fr: "Ã€ cÃ´tÃ© de la difficultÃ© est certes une facilitÃ©.",
+        text_ar: "ÙÙŽØ¥ÙÙ†ÙŽÙ‘ Ù…ÙŽØ¹ÙŽ Ø§Ù„Ù’Ø¹ÙØ³Ù’Ø±Ù ÙŠÙØ³Ù’Ø±Ù‹Ø§",
+        source_type: "coran",
+        source_ref: "Sourate Ash-Sharh",
+        moods: ["stress", "dÃ©prime", "fatigue"],
+        target: ["particulier", "entrepreneur"],
+        epreuve: true
+      },
+      {
+        id: '3',
+        text_fr: "Ton Seigneur ne t'a ni abandonnÃ©, ni dÃ©testÃ©.",
+        text_ar: "Ù…ÙŽØ§ ÙˆÙŽØ¯ÙŽÙ‘Ø¹ÙŽÙƒÙŽ Ø±ÙŽØ¨ÙÙ‘ÙƒÙŽ ÙˆÙŽÙ…ÙŽØ§ Ù‚ÙŽÙ„ÙŽÙ‰Ù°",
+        source_type: "coran",
+        source_ref: "Sourate Ad-Duha",
+        moods: ["dÃ©prime", "fatigue"],
+        target: ["particulier"],
+        epreuve: true
+      },
+      {
+        id: '4',
+        text_fr: "Sois patient, car la promesse d'Allah est vÃ©ritÃ©.",
+        text_ar: "ÙÙŽØ§ØµÙ’Ø¨ÙØ±Ù’ Ø¥ÙÙ†ÙŽÙ‘ ÙˆÙŽØ¹Ù’Ø¯ÙŽ Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù Ø­ÙŽÙ‚ÙŒÙ‘",
+        source_type: "coran",
+        source_ref: "Sourate Ar-RÃ»m",
+        moods: ["stress", "fatigue"],
+        target: ["particulier", "entrepreneur"],
+        epreuve: true
+      },
+      {
+        id: '5',
+        text_fr: "Dis : Å’uvrez, Allah verra vos Å“uvres.",
+        text_ar: "ÙˆÙŽÙ‚ÙÙ„Ù Ø§Ø¹Ù’Ù…ÙŽÙ„ÙÙˆØ§ ÙÙŽØ³ÙŽÙŠÙŽØ±ÙŽÙ‰ Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù Ø¹ÙŽÙ…ÙŽÙ„ÙŽÙƒÙÙ…Ù’",
+        source_type: "coran",
+        source_ref: "Sourate At-Tawbah",
+        moods: ["motivation", "procrastination"],
+        target: ["entrepreneur"],
+        epreuve: false
+      },
+      {
+        id: '6',
+        text_fr: "Allah n'impose Ã  aucune Ã¢me une charge supÃ©rieure Ã  sa capacitÃ©.",
+        text_ar: "Ù„ÙŽØ§ ÙŠÙÙƒÙŽÙ„ÙÙ‘ÙÙ Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù Ù†ÙŽÙÙ’Ø³Ù‹Ø§ Ø¥ÙÙ„ÙŽÙ‘Ø§ ÙˆÙØ³Ù’Ø¹ÙŽÙ‡ÙŽØ§",
+        source_type: "coran",
+        source_ref: "Sourate Al-Baqarah",
+        moods: ["stress", "fatigue"],
+        target: ["particulier"],
+        epreuve: true
+      },
+      // RAPPEL
+      {
+        id: '7',
+        text_fr: "La patience est la clÃ© du soulagement.",
+        text_ar: "Ø§Ù„ØµØ¨Ø± Ù…ÙØªØ§Ø­ Ø§Ù„ÙØ±Ø¬",
+        source_type: "rappel",
+        source_ref: "Sagesse islamique",
+        moods: ["stress", "fatigue"],
+        target: ["particulier", "entrepreneur"],
+        epreuve: true
+      },
+      {
+        id: '8',
+        text_fr: "Le croyant fort est meilleur et plus aimÃ© d'Allah que le croyant faible.",
+        text_ar: "Ø§Ù„Ù…Ø¤Ù…Ù† Ø§Ù„Ù‚ÙˆÙŠ Ø®ÙŠØ± ÙˆØ£Ø­Ø¨ Ø¥Ù„Ù‰ Ø§Ù„Ù„Ù‡ Ù…Ù† Ø§Ù„Ù…Ø¤Ù…Ù† Ø§Ù„Ø¶Ø¹ÙŠÙ",
+        source_type: "rappel",
+        source_ref: "Sahih Muslim",
+        moods: ["motivation", "fatigue"],
+        target: ["particulier", "entrepreneur"],
+        epreuve: false
+      },
+      // ACTION - Particuliers
+      {
+        id: '9',
+        text_fr: "Tu n'as pas besoin d'aller bien pour avancer. Tu as juste besoin d'avancer.",
+        text_ar: null,
+        source_type: "action",
+        source_ref: null,
+        moods: ["dÃ©prime", "procrastination"],
+        target: ["particulier", "entrepreneur"],
+        epreuve: false
+      },
+      {
+        id: '10',
+        text_fr: "La discipline aujourd'hui t'Ã©vitera le regret demain.",
+        text_ar: null,
+        source_type: "action",
+        source_ref: null,
+        moods: ["procrastination", "motivation"],
+        target: ["particulier", "entrepreneur"],
+        epreuve: false
+      },
+      {
+        id: '11',
+        text_fr: "Ce n'est pas ta situation qui te dÃ©finit, mais ta rÃ©action.",
+        text_ar: null,
+        source_type: "action",
+        source_ref: null,
+        moods: ["dÃ©prime", "stress"],
+        target: ["particulier", "entrepreneur"],
+        epreuve: false
+      },
+      {
+        id: '12',
+        text_fr: "La constance est plus puissante que la motivation.",
+        text_ar: null,
+        source_type: "action",
+        source_ref: null,
+        moods: ["motivation", "fatigue"],
+        target: ["particulier", "entrepreneur"],
+        epreuve: false
+      },
+      {
+        id: '13',
+        text_fr: "Tu n'es pas faible parce que tu luttes. Tu es humain.",
+        text_ar: null,
+        source_type: "action",
+        source_ref: null,
+        moods: ["fatigue", "dÃ©prime"],
+        target: ["particulier"],
+        epreuve: true
+      },
+      {
+        id: '14',
+        text_fr: "L'Ã©preuve n'est pas une punition. C'est souvent une Ã©lÃ©vation dÃ©guisÃ©e.",
+        text_ar: null,
+        source_type: "action",
+        source_ref: null,
+        moods: ["dÃ©prime"],
+        target: ["particulier"],
+        epreuve: true
+      },
+      // ACTION - Entrepreneurs
+      {
+        id: '15',
+        text_fr: "Personne ne te doit ta rÃ©ussite.",
+        text_ar: null,
+        source_type: "action",
+        source_ref: null,
+        moods: ["motivation", "procrastination"],
+        target: ["entrepreneur"],
+        epreuve: false
+      },
+      {
+        id: '16',
+        text_fr: "Si ton business stagne, regarde tes actions, pas ton intention.",
+        text_ar: null,
+        source_type: "action",
+        source_ref: null,
+        moods: ["stress", "procrastination"],
+        target: ["entrepreneur"],
+        epreuve: false
+      },
+      {
+        id: '17',
+        text_fr: "L'Ã©thique n'est pas un frein. C'est une fondation.",
+        text_ar: null,
+        source_type: "action",
+        source_ref: null,
+        moods: ["motivation"],
+        target: ["entrepreneur"],
+        epreuve: false
+      },
+      {
+        id: '18',
+        text_fr: "Tu sais dÃ©jÃ  ce que tu dois amÃ©liorer. Fais-le.",
+        text_ar: null,
+        source_type: "action",
+        source_ref: null,
+        moods: ["procrastination"],
+        target: ["entrepreneur"],
+        epreuve: false
+      },
+      {
+        id: '19',
+        text_fr: "L'Ã©chec n'est pas un verdict, c'est une information.",
+        text_ar: null,
+        source_type: "action",
+        source_ref: null,
+        moods: ["dÃ©prime", "stress"],
+        target: ["entrepreneur"],
+        epreuve: true
+      },
+      {
+        id: '20',
+        text_fr: "Tu n'es pas en retard, tu es en construction.",
+        text_ar: null,
+        source_type: "action",
+        source_ref: null,
+        moods: ["stress", "dÃ©prime"],
+        target: ["entrepreneur"],
+        epreuve: true
+      }
+    ];
+
+    const moods = [
+      { id: 'stress', label: 'Stress', emoji: 'ðŸ˜°' },
+      { id: 'fatigue', label: 'Fatigue', emoji: 'ðŸ˜´' },
+      { id: 'dÃ©prime', label: 'DÃ©prime', emoji: 'ðŸ˜”' },
+      { id: 'motivation', label: 'Motivation', emoji: 'ðŸ’ª' },
+      { id: 'procrastination', label: 'Procrastination', emoji: 'â³' }
+    ];
+
+    // Icons
+    const Icons = {
+      Logo: () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>,
+      User: () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>,
+      Briefcase: () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>,
+      Heart: () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>,
+      Home: () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>,
+      Star: ({ filled }) => <svg viewBox="0 0 24 24" fill={filled ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>,
+      Settings: () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>,
+      Share: () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98"/></svg>,
+      Refresh: () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>,
+      ArrowLeft: () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>,
+      Check: () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>,
+      X: () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>,
+      Bell: () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>,
+    };
+
+    // Onboarding
+    const Onboarding = ({ onComplete }) => {
+      const [profile, setProfile] = useState(null);
+
+      return (
+        <div className="screen onboarding">
+          <div className="onboarding-logo"><Icons.Logo /></div>
+          <h1>NOOR</h1>
+          <p>Motivation alignÃ©e avec tes valeurs</p>
+
+          <div className="profile-choices">
+            <div 
+              className={`profile-choice ${profile === 'particulier' ? 'selected' : ''}`}
+              onClick={() => setProfile('particulier')}
+            >
+              <div className="profile-choice-icon"><Icons.User /></div>
+              <div className="profile-choice-text">
+                <h3>Particulier</h3>
+                <span>Ã‰tudiant, salariÃ©, en transition</span>
+              </div>
+            </div>
+            <div 
+              className={`profile-choice ${profile === 'entrepreneur' ? 'selected' : ''}`}
+              onClick={() => setProfile('entrepreneur')}
+            >
+              <div className="profile-choice-icon"><Icons.Briefcase /></div>
+              <div className="profile-choice-text">
+                <h3>Entrepreneur</h3>
+                <span>Freelance, dirigeant, porteur de projet</span>
+              </div>
+            </div>
+            <div 
+              className={`profile-choice ${profile === 'both' ? 'selected' : ''}`}
+              onClick={() => setProfile('both')}
+            >
+              <div className="profile-choice-icon"><Icons.Heart /></div>
+              <div className="profile-choice-text">
+                <h3>Les deux</h3>
+                <span>Messages variÃ©s selon le contexte</span>
+              </div>
+            </div>
+          </div>
+
+          <button 
+            className="btn-primary"
+            disabled={!profile}
+            onClick={() => onComplete(profile)}
+          >
+            Commencer
+          </button>
+        </div>
+      );
+    };
+
+    // Home - Ã‰purÃ©
+    const Home = ({ profile, selectedMood, setSelectedMood, epreuveMode, setEpreuveMode, onGenerate }) => (
+      <div className="screen home">
+        <div className="home-header">
+          <span className="home-title">Aujourd'hui</span>
+          <span className="home-profile">
+            {profile === 'entrepreneur' ? <Icons.Briefcase /> : profile === 'both' ? <Icons.Heart /> : <Icons.User />}
+            {profile === 'entrepreneur' ? 'Entrepreneur' : profile === 'both' ? 'Mixte' : 'Particulier'}
+          </span>
+        </div>
+
+        <div className="home-question">
+          <h1>Comment te sens-tu ?</h1>
+          <p>Choisis ton Ã©tat d'esprit</p>
+        </div>
+
+        <div className="mood-list">
+          {moods.map((mood) => (
+            <button
+              key={mood.id}
+              className={`mood-pill ${selectedMood === mood.id ? 'selected' : ''}`}
+              onClick={() => setSelectedMood(mood.id)}
+            >
+              <span className="emoji">{mood.emoji}</span>
+              {mood.label}
+            </button>
+          ))}
+        </div>
+
+        <div 
+          className={`epreuve-option ${epreuveMode ? 'active' : ''}`}
+          onClick={() => setEpreuveMode(!epreuveMode)}
+        >
+          <div className={`checkbox ${epreuveMode ? 'checked' : ''}`}>
+            <Icons.Check />
+          </div>
+          <span>Mode Ã©preuve â€” messages plus profonds</span>
+        </div>
+
+        <button
+          className="home-cta"
+          onClick={onGenerate}
+          disabled={!selectedMood}
+        >
+          Recevoir un message
+        </button>
+      </div>
+    );
+
+    // Citation
+    const Citation = ({ citation, isFavorite, onToggleFavorite, onShare, onRefresh, onBack }) => {
+      const [isDone, setIsDone] = useState(false);
+
+      const typeLabels = { coran: 'Coran', rappel: 'Rappel', action: 'Action' };
+
+      return (
+        <div className="screen citation-screen">
+          <div className="citation-card">
+            <span className={`citation-type ${citation.source_type}`}>
+              {typeLabels[citation.source_type]}
+            </span>
+
+            {citation.text_ar && (
+              <div className="citation-ar">{citation.text_ar}</div>
+            )}
+
+            <p className="citation-fr">{citation.text_fr}</p>
+
+            {citation.source_ref && (
+              <p className="citation-source">{citation.source_ref}</p>
+            )}
+
+            <div className="citation-actions">
+              <button 
+                className={`action-btn favorite ${isFavorite ? 'active' : ''}`}
+                onClick={onToggleFavorite}
+              >
+                <Icons.Star filled={isFavorite} />
+              </button>
+              <button className="action-btn" onClick={onShare}>
+                <Icons.Share />
+              </button>
+              <button className="action-btn refresh" onClick={onRefresh}>
+                <Icons.Refresh />
+              </button>
+            </div>
+
+            {citation.source_type === 'action' && (
+              <button 
+                className={`done-btn ${isDone ? 'completed' : ''}`}
+                onClick={() => setIsDone(true)}
+                disabled={isDone}
+              >
+                <Icons.Check />
+                {isDone ? 'Bien jouÃ© !' : 'Je l\'ai fait'}
+              </button>
+            )}
+          </div>
+
+          <div className="back-link" onClick={onBack}>
+            <Icons.ArrowLeft />
+            Changer d'humeur
+          </div>
+        </div>
+      );
+    };
+
+    // Favorites
+    const Favorites = ({ favorites, onRemove }) => (
+      <div className="screen favorites">
+        <h1>Favoris</h1>
+        <p className="favorites-count">{favorites.length} message{favorites.length !== 1 ? 's' : ''}</p>
+
+        {favorites.length === 0 ? (
+          <div className="empty-state">
+            <div className="empty-state-icon"><Icons.Star filled={false} /></div>
+            <h3>Aucun favori</h3>
+            <p>Tes messages prÃ©fÃ©rÃ©s apparaÃ®tront ici</p>
+          </div>
+        ) : (
+          <div className="favorites-list">
+            {favorites.map((c) => (
+              <div key={c.id} className="favorite-item">
+                <p className={`favorite-type ${c.source_type}`}>
+                  {c.source_type === 'coran' ? 'Coran' : c.source_type === 'rappel' ? 'Rappel' : 'Action'}
+                </p>
+                <p className="favorite-text">{c.text_fr}</p>
+                {c.source_ref && <p className="favorite-source">{c.source_ref}</p>}
+                <button className="favorite-remove" onClick={() => onRemove(c.id)}>
+                  <Icons.X />
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+
+    // Settings
+    const Settings = ({ profile, notifications, setNotifications, onChangeProfile }) => (
+      <div className="screen settings">
+        <h1>ParamÃ¨tres</h1>
+
+        <div className="settings-group">
+          <p className="settings-group-title">Profil</p>
+          <div className="settings-item" onClick={onChangeProfile} style={{ cursor: 'pointer' }}>
+            <div className="settings-item-left">
+              <div className="settings-icon"><Icons.User /></div>
+              <span className="settings-label">Mon profil</span>
+            </div>
+            <span className="settings-value">
+              {profile === 'entrepreneur' ? 'Entrepreneur' : profile === 'both' ? 'Les deux' : 'Particulier'}
+            </span>
+          </div>
+        </div>
+
+        <div className="settings-group">
+          <p className="settings-group-title">Notifications</p>
+          <div className="settings-item">
+            <div className="settings-item-left">
+              <div className="settings-icon"><Icons.Bell /></div>
+              <span className="settings-label">Messages quotidiens</span>
+            </div>
+            <div 
+              className={`toggle ${notifications ? 'on' : ''}`}
+              onClick={() => setNotifications(!notifications)}
+            >
+              <div className="toggle-knob"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+
+    // App
+    const App = () => {
+      const [isOnboarded, setIsOnboarded] = useState(false);
+      const [profile, setProfile] = useState(null);
+      const [tab, setTab] = useState('home');
+      const [selectedMood, setSelectedMood] = useState(null);
+      const [epreuveMode, setEpreuveMode] = useState(false);
+      const [currentCitation, setCurrentCitation] = useState(null);
+      const [showCitation, setShowCitation] = useState(false);
+      const [favorites, setFavorites] = useState([]);
+      const [notifications, setNotifications] = useState(true);
+      const [toast, setToast] = useState({ show: false, msg: '' });
+
+      const showToast = (msg) => {
+        setToast({ show: true, msg });
+        setTimeout(() => setToast({ show: false, msg: '' }), 2000);
+      };
+
+      const handleOnboard = (p) => {
+        setProfile(p);
+        setIsOnboarded(true);
+      };
+
+      const generateCitation = useCallback(() => {
+        const targets = profile === 'both' ? ['particulier', 'entrepreneur'] : [profile];
+        
+        let filtered = citationsDB.filter(c => {
+          const moodMatch = c.moods.includes(selectedMood);
+          const targetMatch = c.target.some(t => targets.includes(t));
+          const epreuveMatch = epreuveMode ? c.epreuve : true;
+          return moodMatch && targetMatch && epreuveMatch;
+        });
+
+        if (filtered.length === 0) {
+          filtered = citationsDB.filter(c => c.target.some(t => targets.includes(t)));
+        }
+
+        const idx = Math.floor(Math.random() * filtered.length);
+        setCurrentCitation(filtered[idx]);
+        setShowCitation(true);
+      }, [selectedMood, profile, epreuveMode]);
+
+      const toggleFavorite = () => {
+        if (!currentCitation) return;
+        const isFav = favorites.some(f => f.id === currentCitation.id);
+        if (isFav) {
+          setFavorites(favorites.filter(f => f.id !== currentCitation.id));
+          showToast('RetirÃ© des favoris');
+        } else {
+          setFavorites([...favorites, currentCitation]);
+          showToast('AjoutÃ© aux favoris');
+        }
+      };
+
+      const shareCitation = () => {
+        if (!currentCitation) return;
+        let text = currentCitation.text_fr;
+        if (currentCitation.source_ref) text += `\nâ€” ${currentCitation.source_ref}`;
+        if (navigator.share) {
+          navigator.share({ title: 'NOOR', text });
+        } else {
+          navigator.clipboard.writeText(text);
+          showToast('CopiÃ© !');
+        }
+      };
+
+      const isFavorite = currentCitation ? favorites.some(f => f.id === currentCitation.id) : false;
+
+      const renderScreen = () => {
+        if (!isOnboarded) return <Onboarding onComplete={handleOnboard} />;
+        
+        if (showCitation && currentCitation) {
+          return (
+            <Citation
+              citation={currentCitation}
+              isFavorite={isFavorite}
+              onToggleFavorite={toggleFavorite}
+              onShare={shareCitation}
+              onRefresh={generateCitation}
+              onBack={() => setShowCitation(false)}
+            />
+          );
+        }
+
+        switch (tab) {
+          case 'favorites':
+            return <Favorites favorites={favorites} onRemove={(id) => setFavorites(favorites.filter(f => f.id !== id))} />;
+          case 'settings':
+            return (
+              <Settings
+                profile={profile}
+                notifications={notifications}
+                setNotifications={setNotifications}
+                onChangeProfile={() => setIsOnboarded(false)}
+              />
+            );
+          default:
+            return (
+              <Home
+                profile={profile}
+                selectedMood={selectedMood}
+                setSelectedMood={setSelectedMood}
+                epreuveMode={epreuveMode}
+                setEpreuveMode={setEpreuveMode}
+                onGenerate={generateCitation}
+              />
+            );
+        }
+      };
+
+      return (
+        <div className="app">
+          {renderScreen()}
+
+          {isOnboarded && !showCitation && (
+            <nav className="nav">
+              <button className={`nav-item ${tab === 'home' ? 'active' : ''}`} onClick={() => setTab('home')}>
+                <Icons.Home />
+                <span>Accueil</span>
+              </button>
+              <button className={`nav-item ${tab === 'favorites' ? 'active' : ''}`} onClick={() => setTab('favorites')}>
+                <Icons.Star filled={tab === 'favorites'} />
+                <span>Favoris</span>
+              </button>
+              <button className={`nav-item ${tab === 'settings' ? 'active' : ''}`} onClick={() => setTab('settings')}>
+                <Icons.Settings />
+                <span>ParamÃ¨tres</span>
+              </button>
+            </nav>
+          )}
+
+          <div className={`toast ${toast.show ? 'show' : ''}`}>{toast.msg}</div>
+        </div>
+      );
+    };
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
